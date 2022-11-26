@@ -1,6 +1,13 @@
-# Video tutorial
+# Page Ready
 
-    https://youtu.be/fE3nIWqt8Tk
+    - http://localhost:3000/
+    - http://localhost:3000/profile
+    - http://localhost:3000/register
+    - http://localhost:3000/login
+
+# Additional
+
+use YARN during install
 
 # Reference
 
