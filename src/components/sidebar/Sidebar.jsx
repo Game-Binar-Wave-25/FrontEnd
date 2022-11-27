@@ -59,6 +59,12 @@ const handleRegister= () => {
     window.location.href= './register'
 }
 
+const handleLogout = () => {
+    localStorage.removeItem('accesstoken')
+    window.location.href = '/login'
+   }   
+
+const jwtToken = localStorage.getItem('accesstoken')
     // change active index
     useEffect(() => {
         const curPath = window.location.pathname.split('/')[1];
@@ -100,9 +106,9 @@ const handleRegister= () => {
                         <button type="button" className="btn btn-success text-center mx-2" onClick={handleLogin} >Login</button>
                         <button type="button" className="btn btn-warning text-center mx-2 text-white" onClick={handleRegister}>Register</button>
                     </div>
-                    <div className="sidebar__reg-log container">
-                        <button type="button" className="btn btn-danger text-center mx-2" >Logout</button>
-                    </div>
+                    {jwtToken && <div className="sidebar__reg-log container">
+                        <button type="button" className="btn btn-danger text-center mx-2" onClick={handleLogout}  >Logout</button>
+                    </div>}
                 </div>
             </div>
         </>

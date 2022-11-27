@@ -28,6 +28,9 @@ class Login extends Component {
       .then((userCredential) => {
         // const user = userCredential.user;
         window.location.href= './'
+        console.log(userCredential)
+        const jwtToken = userCredential.user.accessToken
+        localStorage.setItem("accesstoken",jwtToken )
         // ...
       })
       .catch((error) => {
