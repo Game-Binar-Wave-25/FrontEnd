@@ -1,4 +1,6 @@
 import React from 'react';
+import authFirebase from "../config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import {
     MDBBtn,
     MDBContainer,
@@ -7,12 +9,43 @@ import {
     MDBCard,
     MDBCardBody,
     MDBInput,
-    MDBIcon,
-    MDBTextArea
+    // MDBIcon,
+    // MDBTextArea
 }
     from 'mdb-react-ui-kit';
+    const {Component} = require("react")
+    
+class Register extends Component {
 
-function Register() {
+    state= {
+        email: '',
+        password: ''
+      }
+      handleRegister= () => {
+        console.log(this.state);
+    
+        createUserWithEmailAndPassword (authFirebase, this.state.email, this.state.password)
+      .then((userCredential) => {
+        // const user = userCredential.user;
+        alert ('REGISTER SUCCESS, PLEASE LOGIN')
+        window.location.href= './Login'
+        // ...
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert (errorMessage)
+        // ..
+      });
+    
+      }
+    
+      handleOnChange= (event) => {
+        this.setState({
+          [event.target.id]: event.target.value
+        })
+      }
+
+      render() {
     return (
         <>
             <MDBContainer fluid>
@@ -26,13 +59,10 @@ function Register() {
                                 <h2 className="fw-bold mb-2 text-uppercase">Register</h2>
                                 <p className="text-dark-50 mb-5">Please enter your email and password!</p>
 
-                                <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' placeholder='Enter username' id='username' type='text' size="lg" />
-                                <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' placeholder='Enter email' id='email' type='email' size="lg" />
-                                <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' placeholder='Enter password' id='password' type='password' size="lg" />
-                                <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' placeholder='Enter city' id='city' type='text' size="lg" />
-                                <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' placeholder='Enter address' id='address' type='text' size="lg" />
-                                <MDBTextArea wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' placeholder='Enter bio' id='bio' rows={3} />
-                                <MDBBtn className='w-100 mb-4' size='md'>SIGN UP</MDBBtn>
+                               
+                                <MDBInput wrapperClass='mb-4 mx-5 w-100' onChange={this.handleOnChange} labelClass='text-white' placeholder='Enter email' id='email' type='email' size="lg" />
+                                <MDBInput wrapperClass='mb-4 mx-5 w-100' onChange={this.handleOnChange} labelClass='text-white' placeholder='Enter password' id='password' type='password' size="lg" />
+                                <MDBBtn className='w-100 mb-4' size='md' onClick={this.handleRegister}>SIGN UP</MDBBtn>
 
                                 <div>
                                     <p className="mb-0">You have an account? <a href="#!" class="text-info fw-bold">Sign In</a></p>
@@ -46,6 +76,7 @@ function Register() {
             </MDBContainer>
         </>
     );
+}
 }
 
 export default Register;

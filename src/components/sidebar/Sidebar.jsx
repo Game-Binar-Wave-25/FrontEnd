@@ -50,6 +50,15 @@ const Sidebar = () => {
         }, 50);
     }, []);
 
+const handleLogin= () => {
+
+    window.location.href= './login'
+}
+const handleRegister= () => {
+
+    window.location.href= './register'
+}
+
     // change active index
     useEffect(() => {
         const curPath = window.location.pathname.split('/')[1];
@@ -88,11 +97,11 @@ const Sidebar = () => {
                         }
                     </div>
                     <div className="sidebar__reg-log container">
-                        <button type="button" className="btn btn-success text-center mx-2">Login</button>
-                        <button type="button" className="btn btn-warning text-center mx-2 text-white">Register</button>
+                        <button type="button" className="btn btn-success text-center mx-2" onClick={handleLogin} >Login</button>
+                        <button type="button" className="btn btn-warning text-center mx-2 text-white" onClick={handleRegister}>Register</button>
                     </div>
                     <div className="sidebar__reg-log container">
-                        <button type="button" className="btn btn-danger text-center mx-2">Logout</button>
+                        <button type="button" className="btn btn-danger text-center mx-2" >Logout</button>
                     </div>
                 </div>
             </div>

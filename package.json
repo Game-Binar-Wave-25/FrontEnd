@@ -7,6 +7,7 @@
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
     "boxicons": "^2.1.1",
+    "firebase": "^9.14.0",
     "install": "^0.13.0",
     "mdb-react-ui-kit": "^5.0.0",
     "npm": "^9.1.2",
@@ -47,5 +48,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/Game-Binar-Wave-25/FrontEnd.git",
+  "author": "Nur Fajri Qas <nfq.fajri28@gmail.com>",
+  "license": "MIT"
 }
