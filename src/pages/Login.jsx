@@ -27,7 +27,6 @@ class Login extends Component {
         signInWithEmailAndPassword (authFirebase, this.state.email, this.state.password)
       .then((userCredential) => {
         // const user = userCredential.user;
-        alert ('Login Succes')
         window.location.href= './'
         // ...
       })

@@ -27,7 +27,6 @@ class Register extends Component {
         createUserWithEmailAndPassword (authFirebase, this.state.email, this.state.password)
       .then((userCredential) => {
         // const user = userCredential.user;
-        alert ('REGISTER SUCCESS, PLEASE LOGIN')
         window.location.href= './Login'
         // ...
       })
