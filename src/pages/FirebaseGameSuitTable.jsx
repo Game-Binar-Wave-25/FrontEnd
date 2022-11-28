@@ -4,6 +4,8 @@ import { database } from '../config/firebase'
 import { ref, child, get } from 'firebase/database'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import DataTable from 'react-data-table-component';
 
 export default function FirebaseGameSuitTable(params) {
@@ -16,7 +18,7 @@ export default function FirebaseGameSuitTable(params) {
         },
         {
             name: 'Name',
-            selector: row => row.name,
+            selector: row => row.email,
         },
         {
             name: 'Total Game',
@@ -54,15 +56,19 @@ export default function FirebaseGameSuitTable(params) {
     })
     return(
         <>
-            <TitleHeadingComponent title="Data History Player"/>
-            {
+        <div className='container'>
+        <TitleHeadingComponent title="Data History Player"/>
+        <Link to="/gameSuit">
+                <button type="button" className="btn btn-light Back">Back</button>
+        </Link>
+        {
                 data != null && 
                 <DataTable
                 columns={columns}
                 data={data.record}
                 />
             }
-            {/* { JSON.stringify(data)} */}  
+        </div>
         </>
     )
 }

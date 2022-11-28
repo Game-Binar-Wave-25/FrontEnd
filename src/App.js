@@ -20,7 +20,6 @@ function App() {
     <>
      <Router>
       <Routes>
-        {/* <Route path='/' element={<Home/>}/> */}
         <Route path='/' element={<AppLayout />}>
                     <Route index element={<Home />} />
                     <Route path='/profile' element={<Profile />} />
@@ -30,8 +29,8 @@ function App() {
                 </Route>
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
-        <Route path='/firebase/gameSuit' element={<FirebaseGameSuit/>}/>
-        <Route path='/firebase/gameSuitTable' element={<FirebaseGameSuitTable/>}/>
+        <Route path='/gameSuit' element={<FirebaseGameSuit/>}/>
+        <Route path='/gameSuitTable' element={<FirebaseGameSuitTable/>}/>
       </Routes>
     </Router>
     </>

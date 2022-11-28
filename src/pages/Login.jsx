@@ -9,8 +9,6 @@ import {
     MDBCard,
     MDBCardBody,
     MDBInput,
-    // MDBIcon,
-    // MDBTextArea
 }
     from 'mdb-react-ui-kit';
     const {Component} = require("react")
@@ -26,17 +24,14 @@ class Login extends Component {
     
         signInWithEmailAndPassword (authFirebase, this.state.email, this.state.password)
       .then((userCredential) => {
-        // const user = userCredential.user;
         window.location.href= './'
         console.log(userCredential)
         const jwtToken = userCredential.user.accessToken
         localStorage.setItem("accesstoken",jwtToken )
-        // ...
       })
       .catch((error) => {
         const errorMessage = error.message;
         alert (errorMessage)
-        // ..
       });
     
       }
@@ -67,7 +62,7 @@ class Login extends Component {
                                 <MDBBtn className='w-100 mb-4' size='md' onClick={this.handleLogin}>Login</MDBBtn>
 
                                 <div>
-                                    <p className="mb-0">You have an account? <a href="#!" class="text-info fw-bold">Sign In</a></p>
+                                    <p className="mb-0">Don't have an account? <a href="/register" class="text-info fw-bold">Sign Up</a></p>
                                 </div>
                             </MDBCardBody>
                         </MDBCard>

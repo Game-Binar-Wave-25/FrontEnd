@@ -26,14 +26,11 @@ class Register extends Component {
     
         createUserWithEmailAndPassword (authFirebase, this.state.email, this.state.password)
       .then((userCredential) => {
-        // const user = userCredential.user;
         window.location.href= './Login'
-        // ...
       })
       .catch((error) => {
         const errorMessage = error.message;
         alert (errorMessage)
-        // ..
       });
     
       }
@@ -64,7 +61,7 @@ class Register extends Component {
                                 <MDBBtn className='w-100 mb-4' size='md' onClick={this.handleRegister}>SIGN UP</MDBBtn>
 
                                 <div>
-                                    <p className="mb-0">You have an account? <a href="#!" class="text-info fw-bold">Sign In</a></p>
+                                    <p className="mb-0">You have an account? <a href="/login" class="text-info fw-bold">Sign In</a></p>
                                 </div>
                             </MDBCardBody>
                         </MDBCard>
